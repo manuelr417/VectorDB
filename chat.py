@@ -56,3 +56,4 @@ rag_chain = prompt | llm | StrOutputParser()
 
 answer = rag_chain.invoke({"question": question, "documents": documents})
 print(answer)
+print("done")
