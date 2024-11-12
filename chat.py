@@ -5,12 +5,21 @@ from langchain_ollama import ChatOllama
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+#model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer("all-mpnet-base-v2")
 
 #question = "Which model provided best estimates for XLopP?"
-#question = "Who is the authors of the paper?"
-#question = "What the contributions of the paper?"
-question = "What is the main idea of the paper?"
+#question = "Who are the authors of the paper?"
+#question = "What is PubChem?"
+question = "What the contributions of the paper?"
+#question = "What is the main idea of the paper?"
+#question = "What is SMILES?"
+#question = "What is the problem with feature engineering?"
+#question = "What software was used to build the dl models?"
+#question = "Why not use simulations?"
+#question = "What is the computational environment was used to train the DL models?"
+#question = "What is the computational environment?"
+#question = "Why use DL vs simulations to predict xlogP?"
 
 #emb = model.encode("SMILES embedding")
 emb = model.encode(question)
@@ -46,7 +55,7 @@ print(prompt.format(question= question, documents=documents))
 # Initialize the LLM with Llama 3.1 model
 llm = ChatOllama(
     model="llama3.1",
-    temperature=0,
+    temperature=0.3,
 )
 
 # Create a chain combining the prompt template and LLM

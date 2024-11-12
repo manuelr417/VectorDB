@@ -22,7 +22,7 @@ class FragmentDAO:
 
     def getFragments(self,emb):
         cursor = self.conn.cursor()
-        query = "select did, fid, embedding <-> %s as distance, content from fragments order by distance limit 30"
+        query = "select did, fid, embedding <=> %s as distance, content from fragments order by distance limit 30"
         cursor.execute(query, (emb,))
         result = []
         for row in cursor:
